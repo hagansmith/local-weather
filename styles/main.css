@@ -1,2 +1,6 @@
 body {
   background-color: #D1E6E3; }
+
+.jumbotron {
+  background-color: #D1E6E3;
+  background-image: url= "../images/clouds.png"; }
