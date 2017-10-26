@@ -13,34 +13,38 @@ const domString = (weatherData) => {
   domString += `<h3>Air Pressure: ${weatherData.main.pressure}hPa</h3>`;
   domString += `<h3>Wind Speed: ${weatherData.wind.speed}mph</h3>`;
 
-  // Conditions
   clearDom();
   printToDom(domString);
 };
 
-const domStringForecast = (weatherData) => {
+const domStringForecast = (weatherData, days) => {
   let domString = "";
-  domString +=  `<h2 class="text-center">${city}</h2>`;
-  for (let i = 0; i < weatherData.length ; i ++) {
-  //let newString;
-  domString +=  `<h6 class="text-center">${weatherData[i].dt_txt}</h6>`;
-  domString += `<h3>${weatherData[i].weather[0].description}<img src="http://openweathermap.org/img/w/${weatherData[i].weather[0].icon}.png"></h3>`;
-  domString += `<h3>Temp ${weatherData[i].main.temp}</h3>`;
-  domString += `<h3>Air Pressure: ${weatherData[i].main.pressure}hPa</h3>`;
-  domString += `<h3>Wind Speed: ${weatherData[i].wind.speed}mph</h3>`;
-  // Conditions
-  //domString += newString;
-  }
-  clearDom();
-  printToDom(domString);
+  days = days * 7;
+  for (let i = 0; i <= days ; i ++) {
+    if (weatherData[i].dt_txt.split(" ").pop() === "12:00:00") {
+      domString += `<div class="border forecast col-xs-4">`;
+      domString +=  `<h6 class="text-center">${(weatherData[i].dt_txt).split(" ")[0]}</h6>`;
+      domString += `<h3>${weatherData[i].weather[0].description}</h3>`;
+      //<img src="http://openweathermap.org/img/w/${weatherData[i].weather[0].icon}.png">
+      domString += `<h3>Temp ${weatherData[i].main.temp}</h3>`;
+      domString += `<h3>Air Pressure: ${weatherData[i].main.pressure}hPa</h3>`;
+      domString += `<h3>Wind Speed: ${weatherData[i].wind.speed}mph</h3>`;
+      domString += `</div>`;
+      }
+    }
+  printToDom2(domString);
 };
 
 const printToDom = (weatherString) => {
-  $('#weather').append(weatherString);
+  $('#currentWeather').append(weatherString);
+};
+
+const printToDom2 = (weatherString) => {
+  $('#forecastWeather').append(weatherString);
 };
 
 const clearDom = () => {
-  $("#weather").empty();
+  $("#currentWeather").empty();
 };
 
 module.exports = {domString, clearDom, domStringForecast};

@@ -5,6 +5,19 @@ body {
 }
 
 .jumbotron {
-  background-color: $background;
   background-image: $header-image;
+  background-color: $background;
+}
+
+.border {
+  border: 2px solid $border;
+  border-radius: 5px;
+  box-shadow: 0 0 30px black;
+  padding:0 15px 0 15px;
+  background-color: $light;
+}
+
+.forecast {
+  margin-top: 10px;
+
 }

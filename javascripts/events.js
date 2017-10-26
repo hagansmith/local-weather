@@ -2,11 +2,11 @@
 
 let validate = require('./validate');
 
-  $("#submit").click(function(event) {
-      event.preventDefault();
-      submit();
-      forecast();
-  });
+$("#submit").click(function(event) {
+    event.preventDefault();
+    submit();
+    forecast();
+});
 
 const submit = () => {
   let zip = $('#zip').val();
