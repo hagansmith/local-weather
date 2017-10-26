@@ -2,5 +2,15 @@ body {
   background-color: #D1E6E3; }
 
 .jumbotron {
-  background-color: #D1E6E3;
-  background-image: url= "../images/clouds.png"; }
+  background-image: url= "../images/clouds.png";
+  background-color: #D1E6E3; }
+
+.border {
+  border: 2px solid darkgrey;
+  border-radius: 5px;
+  box-shadow: 0 0 30px black;
+  padding: 0 15px 0 15px;
+  background-color: #AAB8CE; }
+
+.forecast {
+  margin-top: 10px; }
